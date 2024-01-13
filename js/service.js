@@ -1,6 +1,19 @@
 const $ = document
 
-// form actions
+//css loader actions
+
+const loaderContainer = $.querySelector('.loader__container')
+const siteContent = $.querySelector('.site__content')
+
+function loadPage () {
+    loaderContainer.classList.add('hidden')
+    siteContent.classList.remove('hidden')
+}
+
+window.addEventListener('DOMContentLoaded' , loadPage)
+
+
+// popup  form actions
 
 let signInButtons = $.querySelectorAll('.sign__in-btn')
 let formInputs = $.querySelectorAll('.popup__form form input')
@@ -26,7 +39,6 @@ closeFormButton.forEach(button => {
 loginSignupLink.forEach(link => {
     link.addEventListener('click' , (e) => {
         e.preventDefault();
-        console.log(link.id);
         document.body.classList[link.id === 'signup__link' ? 'add' : 'remove']('show-signup');
         clearInputs()
     })
