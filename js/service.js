@@ -102,12 +102,11 @@ window.addEventListener('scroll' , () => {
 // hamburger menu
 
 const hamburgerMenuBtn = $.querySelector('.hamburger__menu-btn')
-const hamburgerMenuIcon = $.querySelector('.hamburger__menu')
 const navList = $.querySelector('.nav__list')
 const navLinks = $.querySelectorAll('.nav__list .nav__link')
 
 hamburgerMenuBtn.addEventListener('click' , () => {
-    hamburgerMenuIcon.classList.toggle('open')
+    hamburgerMenuBtn.classList.toggle('open')
     navList.classList.toggle('show')
 })
 
@@ -117,7 +116,13 @@ navLinks.forEach(navLink => {
     })
 })
 
+document.addEventListener('click' , (e) => {
+    if(e.target !== hamburgerMenuBtn && e.target.parentNode !== hamburgerMenuBtn) {
+        closeHamburgerMenu()
+    }
+})
+ 
 const closeHamburgerMenu = () => {
-    hamburgerMenuIcon.classList.remove('open')
+    hamburgerMenuBtn.classList.remove('open')
     navList.classList.remove('show')
 }

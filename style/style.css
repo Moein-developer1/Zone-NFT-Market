@@ -509,15 +509,15 @@ body.no-scrolling {
 }
 
 
-.hamburger__menu.open div::before{
+.hamburger__menu-btn.open div::before{
     transform: rotate(45deg);
 }
 
-.hamburger__menu.open div {
+.hamburger__menu-btn.open div {
     background-color: transparent;
 }
 
-.hamburger__menu.open div::after{
+.hamburger__menu-btn.open div::after{
     transform: rotate(-45deg);
 }
 
