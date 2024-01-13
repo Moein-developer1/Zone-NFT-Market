@@ -13,7 +13,10 @@ function loadPage () {
     siteContent.classList.remove('hidden')
 }
 
-window.addEventListener('DOMContentLoaded' , loadPage)
+window.addEventListener('DOMContentLoaded' , () => {
+    loadPage()
+    carouselActions()
+})
 
 // popup forms
 
@@ -206,10 +209,11 @@ loadButton.addEventListener('click' , () => {
 
 // carousel , our team
 
+function carouselActions () {
 let carouselWraper = $.querySelector('.carousel__wraper')
 let carousel = $.querySelector('.carousel')
 let arrowButtons = $.querySelectorAll('.carousel__wraper button')
-let firstCardWidth = $.querySelector('.card').offsetWidth
+let firstCardWidth = carousel.querySelector('.card').offsetWidth
 let carouselChildren = [...carousel.children]
 
 let isDrag = false , startX , startScrollLeft , timeoutId
@@ -281,6 +285,10 @@ document.addEventListener('mouseup' , dragEnd)
 carousel.addEventListener('scroll' , infiniteScroll)
 carouselWraper.addEventListener('mouseenter' , clearInterval(timeoutId))
 carouselWraper.addEventListener('mouseleave' , infiniteScroll)
+
+
+}
+
 
 // accordion
 
